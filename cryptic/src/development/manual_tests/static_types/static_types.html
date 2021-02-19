@@ -1,0 +1,25 @@
+<html>
+	<head>
+	</head>
+	<body>
+        <pre id="out">
+		</pre>
+	</body>
+    <script>
+        outFileName = '__target__/static_types.out';
+        request = new XMLHttpRequest ();
+        request.open ('GET', outFileName);
+        
+        request.onreadystatechange = function () {
+            document.getElementById ('out') .innerHTML = (
+                (request.readyState == XMLHttpRequest.DONE && request.status == 200)
+                ?
+                request.responseText
+                :
+                'Could not load ' + outFileName + ', readyState = ' + request.readyState + ', status: ' + request.status
+            );
+        };
+        
+        request.send ()
+    </script>
+</html>
